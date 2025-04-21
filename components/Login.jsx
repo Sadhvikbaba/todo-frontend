@@ -1,7 +1,11 @@
+"use client";
+
 import { userLogin, userSignUp } from "@/app/connecting";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
+  const router = useRouter();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     username: "",
@@ -60,6 +64,7 @@ export default function LoginForm() {
         setTimeout(() =>{
           setSuccess("please login")
           setIsLogin(true)
+          router.push("/todo")
         } , 2000)
       })
       .catch((err) =>{setError(err.error)}
