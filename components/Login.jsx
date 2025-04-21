@@ -55,6 +55,7 @@ export default function LoginForm() {
       .then((response) => {
         localStorage.setItem("token" , response?.token);
         setSuccess("Login successful!")
+        router.push("/todo")
       })
       .catch((err) => {setError(err.error)})
     }else{
@@ -64,7 +65,6 @@ export default function LoginForm() {
         setTimeout(() =>{
           setSuccess("please login")
           setIsLogin(true)
-          router.push("/todo")
         } , 2000)
       })
       .catch((err) =>{setError(err.error)}
