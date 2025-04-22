@@ -172,11 +172,11 @@ export default function TodoApp() {
   };
 
   // Filter todos based on current filter
-  const filteredTodos = todos.filter(todo => {
+  const filteredTodos = todos && todos.length ? todos.filter(todo => {
     if (filter === "active") return !todo.isCompleted;
     if (filter === "completed") return todo.isCompleted;
     return true; // "all" filter
-  });
+  }) : [];
 
   // Clear all completed todos
   const clearCompleted = () => {
