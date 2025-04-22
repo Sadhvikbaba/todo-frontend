@@ -434,7 +434,7 @@ export default function TodoApp() {
 
         {/* Todo Counter */}
         <div className="mt-4 text-sm text-violet-300 text-center">
-          {todos.filter(todo => !todo.isCompleted).length} task(s) remaining
+          {todos && todos.length ? todos.filter(todo => !todo.isCompleted).length : 0} task(s) remaining
         </div>
       </div>
 
