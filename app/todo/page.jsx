@@ -3,14 +3,15 @@
 import { useState, useEffect } from "react";
 import Astro from "../assets/astro.png";
 import Image from "next/image";
-import { AlignJustify, InboxIcon, ListCheck, Moon, LoaderCircle } from "lucide-react";
-import { createTodo, deleteTodos, getTodos, toggleTodo, updateTodo } from "../connecting";
+import { AlignJustify, InboxIcon, ListCheck, Moon, LoaderCircle, LogOut } from "lucide-react";
+import { createTodo, deleteTodos, getTodos, toggleTodo, updateTodo, useLogout } from "../connecting";
 
 import Protected from "@/components/AuthLayout";
 
 export default function TodoApp() {
   // Updated todo structure to match backend response
   const [todos, setTodos] = useState([]);
+  const logout = useLogout();
   
   const [newTodo, setNewTodo] = useState({
     title: "",
@@ -235,6 +236,10 @@ export default function TodoApp() {
       ))}
 
       <Image src={Astro} alt="astronaut" className="absolute float bottom-3 right-3 not-sm:hidden"/>
+
+      <div className=" absolute right-3 top-3 cursor-pointer" onClick={logout}>
+        <LogOut/>
+      </div>
 
       <div className="max-w-md mx-auto relative z-10">
         {/* Header */}

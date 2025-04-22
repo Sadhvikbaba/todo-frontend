@@ -1,6 +1,8 @@
 "use client";
 
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const baseURL = String(process.env.NEXT_PUBLIC_URL);
 
@@ -69,34 +71,16 @@ export const deleteTodos = (id) =>
     getApiClient().delete(`/api/todos/${id}`)
   );
 
+// logout as a React hook to use router
+export const useLogout = () => {
+  const router = useRouter();
 
-/*
-sign up :
-{
-    "Username" : "sadhvik" ,
-    "Email" : "psadhvik2006@gmail.com",
-    "Password" : "Saibaba@2006"
-}
+  const logout = () => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("token");
+      router.push("/login");
+    }
+  };
 
-login :
-{
-    "Email" : "psadhvik2006@gmail.com",
-    "Password" : "Saibaba@2006"
-}
-
-create todo
-{
-  "title": "Finish learning GO",
-  "description": "Complete the todo app with Fiber and MongoDB",
-  "isCompleted": false,
-  "context": "work"
-}
-
-update todo
-{
-    "Title" : "finish todo project first",
-    "Description" : "Complete the todo app with Fiber and MongoDB"
-}
-
-
-*/ 
+  return logout;
+};
