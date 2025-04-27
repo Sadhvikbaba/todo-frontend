@@ -237,11 +237,11 @@ export default function TodoApp() {
 
       <Image src={Astro} alt="astronaut" className="absolute float bottom-3 right-3 not-sm:hidden"/>
 
-      <div className=" absolute right-3 top-3 cursor-pointer" onClick={logout}>
+      <div className=" absolute right-3 top-3 cursor-pointer z-50" onClick={logout}>
         <LogOut/>
       </div>
 
-      <div className="max-w-md mx-auto relative z-10">
+      <div className="max-w-md mx-auto relative z-[999]">
         {/* Header */}
         <div className="text-center mb-8">
         <div className="flex items-center justify-center mb-2 w-full">
