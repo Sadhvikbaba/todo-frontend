@@ -237,7 +237,7 @@ export default function TodoApp() {
 
       <Image src={Astro} alt="astronaut" className="absolute float bottom-3 right-3 not-sm:hidden"/>
 
-      <div className=" absolute right-3 top-3 cursor-pointer z-50" onClick={logout}>
+      <div className=" absolute right-3 top-3 cursor-pointer z-[9999]" onClick={logout}>
         <LogOut/>
       </div>
 
